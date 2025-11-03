@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - INFINITY</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+        }
+
+
+        #title {
+            font-size: 37px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 100;
+            margin-left: 18px;
+            margin-top: 8px;
+            background-image: linear-gradient(to right, #d7263d, red);
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+            animation: animate 7s linear infinite;
+        }
+
+        @keyframes animate {
+            to {
+                background-position-x: -500px;
+            }
+        }
+
+        #btn,
+        #btn1 {
+            background-color: transparent;
+            border-radius: 14px;
+            padding: 10px 20px 10px 20px;
+            color: white;
+            border-color: transparent;
+            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 10px;
+        }
+
+        #btn1 {
+            border-color: white;
+        }
+
+        #btn:hover {
+            border-color: white;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding-bottom: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+        }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            margin-top: 70px;
+        }
+
+        .about {
+            width: 800px;
+            height: 550px;
+            background-color: rgb(45, 44, 44);
+            border: 2px soild #d7263d;
+        }
+
+        .image {
+            width: 400px;
+            height: 550px;
+        }
+
+        h2 {
+            background-color: transparent;
+            color: #d7263d;
+            font-size: 50px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            text-align: center;
+        }
+
+        h3 {
+            background-color: transparent;
+            color: #d7263d;
+            font-size: 30px;
+            font-family: 'Times New Roman', Times, serif;
+            padding-left: 20px;
+        }
+
+        p{
+            background-color: transparent;
+            color: #d7263d;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            padding-left: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <span id="title">
+            INFINITY
+        </span>
+        <div id="navbtns">
+            <a href="index.html"><button id="btn">Home</button></a>
+            <a href="Articles.html"><button id="btn">Articles</button></a>
+            <button id="btn1">About</button>
+        </div>
+    </nav>
+
+    <div id="content">
+        <div class="image"><img src="About.jpeg" alt="" width="400px" height="550px"></div>
+        <div class="about">
+            <h2>About</h2>
+            <h3>Hii...</h3>
+            <p> I am not telling my name again, since i believe that while navigating to here you have already encountered it several times... This website about universe related blog posts is one of my early projects that combines HTML/CSS/JS UI designing and creative writing all in one... </p>
+            <p>The sole purpose of this blog post website is to focus on not forgetting any of the topics i have written here because its been a long time since i studied them, this website will make sure that i am not forgetting my professor's teaching and also ensure my learnings about front-end is used efficiently and effectively...</p>
+            <p>If you liked or enjoyed any of the articles and want to appreciate it or if you want a new article about a particular topic you can reach me at : kinglars918@gmail.com and i will try to react as soon as possible... Keep in mind that 2 new articles will be posted here every month.. Happy Reading!!!</p>
+        </div>
+    </div>
+</body>
+</html>

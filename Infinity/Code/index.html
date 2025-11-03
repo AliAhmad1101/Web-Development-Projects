@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinity</title>
+    <style>
+    
+        #introVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 9999;
+            transition: opacity 1s ease;
+
+        }
+
+        #bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #title {
+            font-size: 24px;
+            color: white;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 100;
+            margin-left: 10px;
+            margin-top: 8px;
+        }
+
+        #btn, #btn1 {
+            background-color: transparent;
+            border-radius: 14px;
+            padding: 10px 20px 10px 20px;
+            color: white;
+            border-color: transparent;
+            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        #btn1{
+            border-color: white;
+        }
+
+        #btn:hover {
+            border-color: white;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+
+        #contents {
+            text-align: center;
+            font-size: 55px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-top: 200px;
+        }
+
+        #content1 {
+            margin-right: 20px;
+            color: white;
+        }
+
+        #content2 {
+            background-color: #d7263d;
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+            animation: animate 7s linear infinite;
+        }
+
+        #para {
+            text-align: center;
+            font-size: 19px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin-top: 15px;
+            margin-left: 150px;
+            margin-right: 150px;
+            color: white;
+        }
+
+        #begin {
+            text-align: center;
+            padding: 9px 20px 9px 20px;
+            border-radius: 18px;
+            background-color: #d7263d;
+            color: white;
+        }
+
+        #bttn {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 300px;
+        }
+
+        #articles {
+            height: 1000px;
+            width: 100%;
+            background-color: #02182b;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <video id="bg" autoplay muted loop>
+        <source src="loop.mp4" type="video/mp4">
+    </video>
+
+    <video id="introVideo" autoplay muted>
+        <source src="intro.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <div id="mainContent">
+        <nav id="navbar">
+            <span id="title">
+                INFINITY
+            </span>
+            <div id="navbtns">
+                <button id="btn1">Home</button>
+                <a href="Articles.html"><button id="btn">Articles</button></a>
+                <a href="About.html"><button id="btn">About</button></a>
+            </div>
+        </nav>
+
+        <div id="contents">
+            <span id="content1">Welcome to</span><span id="content2">INFINITY</span>
+        </div>
+
+        <p id="para">
+            The universe is a vast, ever-expanding canvas of stars, galaxies, and mysteries waiting to be uncovered.
+            From
+            black holes to cosmic origins, every discovery reshapes our understanding of existence. Join me as we
+            journey
+            through space and time, exploring the wonders that lie beyond our sky...
+        </p>
+
+        <div id="bttn"><a href="Articles.html"><button id="begin">Begin Exploring</button></a></div>
+
+    </div>
+    <script>
+        const video = document.getElementById('introVideo');
+        const mainContent = document.getElementById('mainContent');
+
+        video.addEventListener('ended', () => {
+            // Fade out video
+            video.style.opacity = 0;
+
+            // After fade transition, hide video and show main content
+            setTimeout(() => {
+                video.style.display = 'none';
+                mainContent.style.display = 'block';
+
+                // Fade in main content
+                setTimeout(() => {
+                    mainContent.style.opacity = 1;
+                }, 50);
+            }, 1000); // Match the transition duration
+        });
+    </script>
+</body>
+
+</html>

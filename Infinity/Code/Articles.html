@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - INFINITY</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            background-color: rgb(0, 0, 0);
+        }
+
+
+        #title {
+            font-size: 37px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 100;
+            margin-left: 18px;
+            margin-top: 8px;
+            background-image: linear-gradient(to right, #d7263d, red);
+            background-size: cover;
+            background-clip: text;
+            color: transparent;
+            animation: animate 7s linear infinite;
+        }
+
+        @keyframes animate {
+            to {
+                background-position-x: -500px;
+            }
+        }
+
+        #btn,
+        #btn1 {
+            background-color: transparent;
+            border-radius: 14px;
+            padding: 10px 20px 10px 20px;
+            color: white;
+            border-color: transparent;
+            font-size: 16px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 10px;
+        }
+
+        #btn1 {
+            border-color: white;
+        }
+
+        #btn:hover {
+            border-color: white;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            margin-right: 10px;
+            padding-bottom: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-top: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        .card {
+            width: 350px;
+            background-color: rgb(42, 41, 41);
+            height: 450px;
+            margin-top: 50px;
+            margin-left: 110px;
+            margin-bottom: 70px;
+            border-radius: 15px;
+            box-shadow: 10px;
+            display: inline-block;
+        }
+
+        .image img {
+            width: 100%;
+            border-radius: 15px;
+            background-color: transparent;
+            text-align: center;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .image {
+            background-color: transparent;
+        }
+
+        .description {
+            color: white;
+            background-color: transparent;
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .card-title {
+            color: white;
+            background-color: transparent;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 25px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+
+        .button {
+            background-color: transparent;
+            text-align: center;
+            margin-top: 10px;
+            background-color: #d7263d;
+            border-radius: 18px;
+            padding: 6px 18px 6px 18px;
+            margin-left: 100px;
+            margin-right: 100px;
+            color: white;
+        }
+
+        .button:hover {
+            background-color: transparent;
+            border-color: #d7263d;
+            color: #d7263d;
+            border: 1px solid #d7263d;
+        }
+
+        .card a{
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav id="navbar">
+        <span id="title">
+            INFINITY
+        </span>
+        <div id="navbtns">
+            <a href="index.html"><button id="btn">Home</button></a>
+            <button id="btn1">Articles</button>
+            <a href="About.html"><button id="btn">About</button></a>
+        </div>
+    </nav>
+
+    <h2>Select a pathway and dive deeper into the universe...</h2>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA1-2.jpeg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Sir Galileo Galilei
+        </div>
+        <div class="description">
+            The father of modern observational astronomy, revolutionized our view of the universe with his telescopic discoveries...
+        </div>
+        <a href="Article1.html"><div class="button">
+            Read more...
+        </div></a>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA2-1.jpg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Planets
+        </div>
+        <div class="description">
+            A look into the fascinating worlds of our solar system. Discover their unique features, mysteries and roles in cosmic balance.
+        </div>
+        <div class="button">
+            Read more...
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA3-1.jpeg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Life on Mars
+        </div>
+        <div class="description">
+            Investigating the possibility of Martian life through scientific missions and discoveries. What clues does the Red Planet hold about habitability.
+        </div>
+        <div class="button">
+            Read more...
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA4-1.jpg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Space Exploration
+        </div>
+        <div class="description">
+            Tracing humanity's journey beyond Earth, from early missions to modern deep-space ventures. Learn how exploration shapes our future.
+        </div>
+        <div class="button">
+            Read more...
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA5-1.jpeg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Earth Moon System
+        </div>
+        <div class="description">
+            Exploring the dynamic relationship between Earth and its lone satellite. Understand tides, eclipses, and how the Moon influences Earth.
+        </div>
+        <div class="button">
+            Read more...
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="image">
+            <img src="imagesA6-1.jpg" alt="trial image" width="300px" height="250px">
+        </div>
+        <div class="card-title">
+            Early Astronomy
+        </div>
+        <div class="description">
+            A glimpse into how ancient civilizations observed the skies. Discover the origins of stargazing and the birth of modern astronomy.
+        </div>
+        <div class="button">
+            Read more...
+        </div>
+    </div>
+</body>
+
+</html>
