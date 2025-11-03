@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Neo Films</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    /* ===================== INTRO SCREEN ===================== */
+    .intro {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      animation: fadeOut 1s ease forwards;
+      animation-delay: 3s;
+    }
+
+    .intro h1 {
+      color: white;
+      font-size: 2em;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      opacity: 0;
+      animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      to { opacity: 0; visibility: hidden; }
+    }
+
+    /* ===================== NAVBAR ===================== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+      z-index: 1000;
+    }
+
+    header.scrolled {
+      background: rgba(200, 200, 200, 0.9);
+    }
+
+    .logo {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: white;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-size: 1em;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0%;
+      height: 2px;
+      background: darkorange;
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: darkorange;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    /* ===================== HERO SECTION ===================== */
+    .hero {
+      height: 100vh;
+      background: url('image.png') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-shadow: 0px 2px 5px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3em;
+      white-space: nowrap;
+      border-right: 3px solid darkorange;
+      width: fit-content;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    /* ===================== SECTIONS ===================== */
+    section {
+      min-height: 100vh;
+      padding: 100px 50px;
+      text-align: center;
+    }
+
+    #work { background: #f4f4f4; }
+    #contact { background: #ddd; }
+    #about { background: #bbb; }
+
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: 0 auto 40px auto;
+      line-height: 1.6;
+    }
+
+    /* ===================== WORK SECTION ===================== */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .work-item {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .work-item img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .work-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .work-item.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+
+    /* ===================== CONTACT FORM ===================== */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: left;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .contact-form.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+
+    .contact-form label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1em;
+    }
+
+    .contact-form button {
+      background: black;
+      color: white;
+      border: 2px solid darkorange;
+      padding: 12px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: darkorange;
+      color: black;
+    }
+
+    /* ===================== ABOUT SECTION ===================== */
+    .about-cards {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .about-cards.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 5px;
+    }
+
+    .copyright {
+      text-align: right;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <!-- Intro Screen -->
+  <div class="intro">
+    <h1>Welcome to Neo Films</h1>
+  </div>
+
+  <!-- Navbar -->
+  <header id="navbar">
+    <div class="logo">NEOFILMS</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1 id="typing"></h1>
+  </section>
+
+  <!-- Work Section -->
+  <section id="work">
+    <h2>Our Creations so far...</h2>
+    <p>We splatter creativity on digital canvas to present you the most unique work we can, below are some of our amazing works...</p>
+    <div class="work-grid">
+      <a href="https://youtu.be/SUQFj8OZ_lM?si=UvX9SbycLwv-fNqG" target="_blank" class="work-item">
+        <img src="attitude.jpg" alt="Work 1">
+        <p>Attitude kafi hai...</p>
+      </a>
+      <a href="https://youtu.be/EheMetzvDu8?si=onFCNy9zqsXyOQe8" target="_blank" class="work-item">
+        <img src="whisper.png" alt="Work 2">
+        <p>Whisper.. an echo in dark</p>
+      </a>
+      <a href="https://youtu.be/vYUY7jtkZhI?si=enRUPmwORpYjbD0D" target="_blank" class="work-item">
+        <img src="overthinking.png" alt="Work 3">
+        <p>Overthinking Overthinker</p>
+      </a>
+      <a href="https://youtu.be/AQt-qsfOeak?si=bvd-qNIkI3642LJT" target="_blank" class="work-item">
+        <img src="flight 113.png" alt="Work 4">
+        <p>The forgotten flight 113</p>
+      </a>
+      <a href="https://youtube.com/shorts/LXQ5giMkWmc?si=GylSWv25tcSqm-Cg" target="_blank" class="work-item">
+        <img src="soulmates.png" alt="Work 5">
+        <p>Soulmates in love...</p>
+      </a>
+      <a href="https://youtu.be/V41DHARY3yE?si=pImQ3L0Mc9cVRdoz" target="_blank" class="work-item">
+        <img src="sajde.jpg" alt="Work 6">
+        <p>Sajde pyar ke...</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have a query or give a praise.Get in touch with us by filling out the form below.</p>
+    <form class="contact-form" netlify>
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <label for="message">Message</label>
+      <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>Meet the awesome team of neo films.</p>
+    <div class="about-cards">
+      <div class="card">
+        <img src="person1.jpg" alt="Person 1">
+        <h3>Ali Ahmad Khan</h3>
+        <p>Insta handle : @the_history_buff._</p>
+        <p>The creative director, editor, designer and writer.</p>
+      </div>
+      <div class="card">
+        <img src="person2.jpg" alt="Person 2">
+        <h3>Vansh Yadav</h3>
+        <p>Insta handle : v.y_5597</p>
+        <p>The magnificient director, mixer and composer.</p>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Neo Films... Designed by - Ali Ahmad Khan.
+    </div>
+  </section>
+
+  <script>
+    /* Navbar background change */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    /* Typing effect loop */
+    const typingElement = document.getElementById('typing');
+    const texts = ["Creating Cinematics - One frame at a time.", "We craft short films, music videos and documentaries..", "Let's dive and experience the cinematics..."];
+    let textIndex = 0, charIndex = 0, isDeleting = false;
+
+    function type() {
+      const current = texts[textIndex];
+      if (isDeleting) {
+        typingElement.textContent = current.substring(0, charIndex--);
+        if (charIndex < 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+          setTimeout(type, 500);
+          return;
+        }
+      } else {
+        typingElement.textContent = current.substring(0, charIndex++);
+        if (charIndex > current.length) {
+          isDeleting = true;
+          setTimeout(type, 1200);
+          return;
+        }
+      }
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    document.addEventListener("DOMContentLoaded", type);
+
+    /* Fade-in animations on scroll */
+    const faders = document.querySelectorAll(".work-item, .contact-form, .about-cards");
+    const appearOptions = { threshold: 0.2 };
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+</body>
+</html>
