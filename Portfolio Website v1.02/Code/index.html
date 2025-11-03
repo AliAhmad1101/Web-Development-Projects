@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--This Portfolio is fully coded and designed by Ali Ahmad Khan, Without use of AI in coding-->
+    <title>Ali - Student & Developer</title>
+    <link rel="shortcut icon" href="a.jpeg" type="image/jpeg">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        body{
+            height: 100%;
+            width: 100%;
+        }
+
+        .background{
+            background-image: url(bg4.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            z-index: -1;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding: 0 15px 0 15px;
+            top: 0;
+            left: 0;
+            position: sticky;
+        }
+
+        .title{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            font-weight: 700;
+            font-size: 23px;
+            letter-spacing: 2px;
+        }
+
+        .btn{
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            font-weight: 500;
+            background-color: transparent;
+            padding: 7px 18px 7px 18px;
+            border-radius: 16px;
+            border: transparent;
+        }
+
+        .btn:hover{
+            background-color: #78dff2;
+            color: black;
+        }
+
+        .hero{
+            height: 100vh;
+            background-color: transparent;
+        }
+
+        .name{
+            color: white;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 23px;
+            text-align: center;
+            font-weight: 300;
+            margin-top: 50px;
+            letter-spacing: 3px;
+        }
+
+        .design{
+            width: 100%;
+            height: 3px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .small{
+            background-color: white;
+            width: 4px;
+            height: 100%;
+            border-radius: 50%;
+            margin: 0 2px 0 2px;
+        }
+
+        .large{
+            background-color: white;
+            height: 100%;
+            width: 100px;
+            border-radius: 50%;
+            margin-left: 2px;
+        }
+
+        .main{
+            background-color: transparent;
+            margin-top: 50px;
+            width: 100%;
+            height: 350px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .short-desc{
+            height: 100%;
+            width: 1200px;
+            background-color: transparent;
+            margin-right: 50px;
+        }
+
+        .follow{
+            height: 100%;
+            width: 50px;
+            background-color: transparent;
+            padding: 50px 10px 50px 10px;
+        }
+
+        .follow img{
+            margin-top: 35px;
+        }
+
+        .follow img:hover{
+            scale: 1.2;
+        }
+
+        .tag{
+            color: white;
+            font-size: 53px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .contrast{
+            color: #78dff2;
+        }
+
+        .about{
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+
+        .resume{
+            text-align: center;
+        }
+
+        .btnoutline{
+            padding: 7px 18px 7px 18px;
+            border: 2px solid white;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 14px;
+            background-color: transparent;
+            border-radius: 16px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .btnoutline:hover{
+            background-color: white;
+            color: black;
+        }
+
+        .skills{
+            width: 100%;
+            height: 150px;
+            background-color: transparent;
+        }
+
+        .skill-title{
+            color: white;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            font-size: 20px;
+            margin-top: 15px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+
+        .scrolls{
+            width: 100%;
+            height: 100px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+
+        .scroll-cards{
+            display: flex;
+            width: max-content;
+            animation: scroll 12s linear infinite;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100%{
+                transform: translateX(-50%);
+            }
+        }
+
+        .card{
+            width: 120px;
+            height: 80px;
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 30px;
+            font-weight: 500;
+            margin: 10px 35px 10px 35px;
+        }
+
+        #qualifications{
+            height: 100vh;
+            width: 100%;
+
+        }
+
+        .qual{
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 37px;
+            text-align: center;
+            letter-spacing: 3px;
+            margin-top: 50px;
+        }
+
+        .qualrow{
+            width: 100%;
+            height: 220px;
+            background-color: transparent;
+            margin-top: 60px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .qualcard{
+            width: 330px;
+            height: 250px;
+            border-radius: 25px;
+            background-color: transparent;
+            margin-top: 20px;
+        }
+
+
+
+        h3{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 22px;
+            color: white;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .q{
+            text-align: center;
+            color: white;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 15px 10px 10px 10px;
+        }
+
+        #projects{
+            width: 100%;
+        }
+
+        .project{
+            width: 100%;
+            height: 300px;
+            background-color: transparent;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .projectbox{
+            width: 1300px;
+            height: 250px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .projectdesc{
+            height: 200px;
+            width: 700px;
+            background-color: transparent;
+            border-radius: 12px;
+        }
+
+        .projectss{
+            height: 200px;
+            width: 400px;
+            background-image: url(neofilms.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .projectss2{
+            height: 200px;
+            width: 400px;
+            background-image: url(infinity.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .projectss3{
+            height: 200px;
+            width: 400px;
+            background-image: url(moviecraft.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .pjtitle{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            font-size: 18px;
+            letter-spacing: 2px;
+            padding: 5px;
+        }
+
+        .pjdesc{
+            font-family: 'Courier New', Courier, monospace;
+            color: white;
+            font-size: 14px;
+            letter-spacing: 3px;
+            padding: 5px;
+        }
+
+        .pjbtn{
+            text-align: center;
+        }
+
+        .pj{
+            color: white;
+            border: 1px solid white;
+            background-color: transparent;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 12px;
+            padding: 8px 12px 8px 12px;
+            border-radius: 10px;
+        }
+
+        .pj:hover{
+            color: black;
+            background-color: white;
+        }
+
+        #contact{
+            width: 100%;
+            height: 100vh;
+        }
+
+        .formarea{
+            margin-top: 60px;
+            width: 100%;
+            height: 500px;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form{
+            height: 450px;
+            background-color: black;
+            width: 600px;
+            border-radius: 24px;
+            box-shadow: 5px 5px 5px 5px gray;
+            display: block;
+            text-align: center;
+
+        }
+
+        input[type="text"]{
+            background-color: black;
+            border: transparent;
+            width: 550px;
+            margin: 20px;
+            border-bottom: 1px solid white;
+            padding: 10px;
+        }
+
+        input[type="text"]::placeholder{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            color: white;
+        }
+
+        input[type="number"]{
+            background-color: black;
+            border: transparent;
+            width: 550px;
+            margin: 20px;
+            border-bottom: 1px solid white;
+            padding: 10px;
+        }
+
+        input[type="number"]::placeholder{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            color: white;
+        }
+
+        textarea{
+            width: 550px;
+            height: 80px;
+            background-color: black;
+            border: transparent;
+            border: 1px solid white;
+            padding: 5px;
+        }
+
+        textarea::placeholder{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 15px;
+            color: white;
+        }
+
+        .form-btn{
+            padding: 7px 18px 7px 18px;
+            background-color: white;
+            color: black;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
+            border-radius: 18px;
+            margin-top: 10px;
+        }
+
+        .form-btn:hover{
+            color: white;
+            background-color: transparent;
+            border: 1px solid white;
+            scale: 1.1;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <nav class="navbar">
+        <span class="title">PortFolio</span>
+        <div class="buttons">
+        <a href="#qualifications"><button class="btn">Qualifications</button></a>
+        <a href="#projects"><button class="btn">Projects</button></a>
+        <a href="#contact"><button class="btn">Contact</button></a>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1 class="name">Hii, I'm Ali Ahmad Khan</h1>
+        <div class="design">
+            <div class="small"></div>
+            <div class="small"></div>
+            <div class="small"></div>
+            <div class="large"></div>
+        </div>
+        <div class="main">
+            <div class="short-desc">
+                <h1 class="tag">B.tech CSE-AI student shaping tomorrow with <span class="contrast">{CODE...}</span></h1>
+                <p class="about">I blend creativity with technology to craft interactive and meaningful digital experiences. Always learning, exploring and pushing boundaries through code. I was born and brought up in Kanpur. When i am not coding, i like to spend my spare time reading comic books/novels, watching movies/web-series and playing video games.</p>
+                <div class="resume"><button class="btnoutline">View Resume -></button></div>
+            </div>
+            <div class="follow">
+                <a href="https://www.instagram.com/the_history_buff._?igsh=ZXo4OW42cWZmZjJq"><img src="instagram.png" alt="" width="22px" height="22px"></a>
+                <a href="https://github.com/AliAhmad1101"><img src="github.png" alt="" width="22px" height="22px"></a>
+                <a href="https://www.linkedin.com/in/ali-ahmad-khan-005415340?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="linkedin.png" alt="" width="22px" height="22px"></a>
+            </div>
+        </div>
+        <div class="skills">
+            <h1 class="skill-title">--- Technologies/Softwares I know ---</h1>
+            <div class="scrolls">
+                <div class="scroll-cards">
+                    <div class="card" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">HTML</div>
+                    <div class="card" style=" font-family: Arial, Helvetica, sans-serif;">CSS</div>
+                    <div class="card">JS</div>
+                    <div class="card" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">PYTHON</div>
+                    <div class="card" style="text-align: center; font-size: 24px;" >Video Editing</div>
+                    <div class="card" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">UI/UX</div>
+                    <div class="card">PYGAME</div>
+                    <div class="card">MySQL</div>
+
+                    <div class="card" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">HTML</div>
+                    <div class="card" style=" font-family: Arial, Helvetica, sans-serif;">CSS</div>
+                    <div class="card">JS</div>
+                    <div class="card" style="font-family: Verdana, Geneva, Tahoma, sans-serif;">PYTHON</div>
+                    <div class="card" style="text-align: center; font-size: 24px;" >Video Editing</div>
+                    <div class="card" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">UI/UX</div>
+                    <div class="card">PYGAME</div>
+                    <div class="card">MySQL</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="qualifications">
+        <h1 class="qual">Qualifications</h1>
+        <div class="qualrow">
+            <div class="qualcard" data-aos="zoom-out-down">
+                
+                <h3>10th Grade</h3>
+                <p class="q">School - Laughing Buddha Academy, Kanpur. Marks Obtained - 91%</p>
+            </div>
+            <div class="qualcard" data-aos="zoom-out-down">
+                
+                <h3>12th Grade</h3>
+                <p class="q">School - Shri Omar Vaish Vidyapeeth Manbodhan Prasad Public School, Kanpur. Marks Obtained - 86%</p>
+            </div>
+            <div class="qualcard" data-aos="zoom-out-down">
+                
+                <h3>B.tech in CSE-AI</h3>
+                <p class="q">College - Maharana Pratap Engineering College, Kanpur. 2nd yr student</p>
+            </div>
+        </div>
+        <div class="qualrow">
+            <div class="qualcard" data-aos="zoom-out-up">
+                
+                <h3>Diploma</h3>
+                <p class="q">Diploma in Computer oriented office management from Ge-Next Computer Institute.</p>
+            </div>
+            <div class="qualcard" data-aos="zoom-out-up">
+                
+                <h3>Certification</h3>
+                <p class="q">Certificate in Astronomy from University of Arizona. Completed with 93% score.</p>
+            </div>
+            <div class="qualcard" data-aos="zoom-out-up">
+               
+                <h3>Certification</h3>
+                <p class="q">Certificate in introduction of AI from Google. Obtained through Coursera.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects">
+        <h1 class="qual">Projects</h1>
+        <div class="project">
+            <div class="projectbox" data-aos="fade-right">
+                <div class="projectdesc">
+                    <h2 class="pjtitle">Project Title - Neo Films</h2>
+                    <h2 class="pjdesc">Project Description - Neo Films is the official website of my YouTube channel that produces music videos and short films. The site showcases our creative work, behind the scenes content and upcoming projects, serving as a hub for film lovers and collaborators.</h2>
+                    <h2 class="pjdesc">Tech stack Used - HTML, CSS and JavaScript(for animation and scrolls)</h2>
+                    <div class="pjbtn"><a href="https://neo-films.netlify.app"><button class="pj">Check it here..</button></a></div>
+                </div>
+                <div class="projectss"></div>
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="projectbox" data-aos="fade-left">
+                <div class="projectss2"></div>
+                <div class="projectdesc">
+                    <h2 class="pjtitle">Project Title - Infinity</h2>
+                    <h2 class="pjdesc">Project Description - Infinity is a universe themed blog website that explores topics like astronomy, sci-fi concepts , space discoveries and cosmic philosophy. Designed to offere readers a journey through the wonders of the universe.</h2>
+                    <h2 class="pjdesc">Tech stack Used - HTML, CSS, Video Editing and JavaScript(for printing and intro)</h2>
+                    <div class="pjbtn"><a href="https://infinity-blogs.netlify.app"><button class="pj">Check it here..</button></a></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="project">
+            <div class="projectbox" data-aos="fade-right">
+                <div class="projectdesc">
+                    <h2 class="pjtitle">Project Title - MovieCraft (Under Development)</h2>
+                    <h2 class="pjdesc">Project Description - MovieCraft is a movie recommendation system that helps users discover films effortlessly. It features a curated catalogue of top-rated movies, a random film generator and data-driven personalized suggestions based on user preferences and ratings.</h2>
+                    <h2 class="pjdesc">Tech stack Used - HTML, CSS and JavaScript(for recommendation system)</h2>
+                    <div class="pjbtn"><a href=""><button class="pj">Work in progress</button></a></div>
+                </div>
+                <div class="projectss3"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <div id="contact">
+        <h1 class="qual">Contact Me..</h1>
+        <div class="formarea">
+            <form action="" name="contact" method="post" data-netlify="true" data-aos="flip-up">
+                <input type="text" name="name" id="name" placeholder="Enter Your Name">
+                <input type="number" name="number" id="number" placeholder="Enter Contact Number">
+                <input type="text" name="email" id="email" placeholder="Enter email address">
+                <input type="text" name="query" id="query" placeholder="Enter your Query">
+                <textarea name="ta" id="ta" placeholder="Describe your reason of contact"></textarea>
+                <button class="form-btn">Send Query</button>
+            </form>
+        </div>
+    </div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+AOS.init();
+</script>
+</body>
+</html>
