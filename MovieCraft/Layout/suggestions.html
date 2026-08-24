@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions</title>
+    <link rel="shortcut icon" href="m.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            scrollbar-width: none;
+        }
+
+        body {
+            background-color: #121212;
+        }
+
+        h2 {
+            color: #ffffff;
+            text-align: center;
+            margin-top: 80px;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .recommend-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 290px 290px;
+            gap: 20px;
+            margin-top: 20px;
+            margin-left: 25px;
+        }
+
+        .rec-card {
+            cursor: pointer;
+            background: #1c1c1c;
+            padding: 10px;
+            width: 80%;
+            height: 260px;
+            border-radius: 8px;
+            transition: .2s;
+        }
+
+        .rec-card:hover {
+            transform: scale(1.05);
+        }
+
+        .rec-poster {
+            width: 100%;
+            border-radius: 6px;
+            height: 260px;
+            object-fit: cover;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="title">
+            <div class="img"></div>
+            <div class="font">MovieCraft</div>
+        </div>
+        <div class="links">
+            <button class="wishlist" onclick="location.href = 'index.html'">Home</button>
+        </div>
+    </nav>
+    <h2>Your curated movie list...</h2>
+    <div id="recommendations" class="recommend-grid"></div>
+
+    <!-- <script>
+        const params = new URLSearchParams(window.location.search);
+        const genre = params.get("genre").toLowerCase();
+        const rating = parseFloat(params.get("rating"));
+        const year = parseInt(params.get("year"));
+
+        fetch("movies.json")
+            .then(res => res.json())
+            .then(data => {
+                const container = document.getElementById("recommendations");
+
+                const filtered = data.filter(movie => {
+                    const matchesGenre = genre ? movie.genre.toLowerCase().includes(genre) : true;
+                    const matchesRating = rating ? movie.score >= rating : true;
+                    const matchesYear = year ? movie.year >= year : true;
+                    return matchesGenre && matchesRating && matchesYear;
+                });
+
+                if (filtered.length === 0) {
+                    container.innerHTML = "<p>NO movies found matching your criteria.</p>";
+                    return;
+                }
+
+
+                filtered.forEach(movie => {
+                    const card = document.getElementById("div");
+                    card.classList.add("rec-card");
+                    card.innerHTML = `<img src="${movie.poster}" referrerpolicy="no-referrer" class="rec-poster">`;
+                    card.onclick = () => {
+                        window.location.href = `movie.html?movie=${encodeURIComponent(movie.name)}`;
+                    };
+
+                    container.appendChild(card);
+
+                });
+            });
+    </script> -->
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const genre = params.get("genre")?.toLowerCase() || "";
+        const rating = params.get("rating") ? parseFloat(params.get("rating")) : "";
+        const year = params.get("year") ? parseInt(params.get("year")) : "";
+        fetch("movies.json")
+            .then(res => res.json())
+            .then(data => {
+
+                const container = document.getElementById("recommendations");
+                const filtered = data.filter(movie => {
+
+                    const matchesGenre = genre
+                        ? movie.genre.toLowerCase().includes(genre)
+                        : true;
+
+                    const matchesRating = rating
+                        ? movie.score >= rating
+                        : true;
+
+                    const matchesYear = year
+                        ? movie.year >= year
+                        : true;
+
+                    return matchesGenre && matchesRating && matchesYear;
+                });
+                if (filtered.length === 0) {
+                    container.innerHTML =
+                        "<p style='color:white; padding-left:20px;'>No movies found matching your criteria.</p>";
+                    return;
+                }
+                filtered.forEach(movie => {
+
+                    const card = document.createElement("div");
+                    card.classList.add("rec-card");
+
+                    card.innerHTML = `<img src="${movie.poster}" class="rec-poster">`;
+
+                    card.onclick = () => {
+                        window.location.href = `movie.html?movie=${encodeURIComponent(movie.name)}`;
+                    };
+
+                    container.appendChild(card);
+                });
+
+            });
+    </script>
+</body>
+
+</html>

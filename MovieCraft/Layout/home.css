@@ -1,0 +1,226 @@
+.scrollbox-top{
+    width: 100%;
+    margin-top: 12vh;
+    height: 28vh;
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.main-content{
+    width: 100%;
+    margin-top: 1vh;
+    height: 27vh;
+    box-sizing: border-box;
+    padding-top: 20px;
+}
+
+.scrollbox-bottom{
+    width: 100%;
+    margin-top: 1vh;
+    height: 28vh; 
+    position: relative;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.scroller-right{
+    width: fit-content;
+    display: flex;
+    height: 28vh;
+    gap: 1vw;
+    animation: loop 50s linear infinite;
+}
+
+.scroller-left{
+    width: fit-content;
+    display: flex;
+    height: 28vh;
+    gap: 1vw;
+    animation: loopleft 50s linear infinite;    
+}
+.card{
+    height: 28vh;
+    width: 10vw;
+    background-color: burlywood;
+    border-radius: 8px;
+    flex: 0 0 auto;
+    background-size: cover;
+}
+
+@keyframes loop{
+    0%{
+        transform: translateX(0);
+    }
+
+    100%{
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes loopleft{
+    0%{
+        transform: translateX(-50%);
+    }
+
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.scroller-left:hover, .scroller-right:hover{
+    animation-play-state: paused;
+}
+
+.search-area{
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbar{
+    width: 50%;
+    height: 8vh;
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15),0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#search{
+    width: 75%;
+    height: 5vh;
+    border: transparent;
+    background-color: white;
+    padding-left: 25px;
+}
+
+.search-btn{
+    padding: 10px 14px 10px 14px;
+    border-radius: 6px;
+    width: 15%;
+    background-color: #f65353;
+    border: 2px solid #f65353;
+    box-shadow: 0 0 14px rgba(255, 77, 77, 0.55);
+    color: black;
+    font-family: 'Lato', sans-serif;   
+    font-size: 14px;
+}
+
+.search-btn:hover{
+    background-color: black;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.85);
+    color: #ffffff;
+}
+
+#search::placeholder{
+    color: black;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px; 
+
+}
+
+.button-area{
+    width: 100%;
+    height: 10vh;
+    margin-top: 1vh;
+    display: flex;
+    justify-content: center;
+}
+
+.browse{
+    padding: 10px 14px 10px 14px;
+    border-radius: 6px;
+    height: 60%;
+    background-color: transparent;
+    border: 2px solid #f65353;
+    box-shadow: 0 0 14px rgba(255, 77, 77, 0.55);
+    color: #ffffff;
+    font-family: 'Lato', sans-serif; 
+    font-size: 13px;  
+}
+
+.browse:hover{
+    background-color: #f65353;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.85);
+    color: black;
+}
+
+.area{
+    margin-top: 5vh;
+    margin-bottom: 20vh;
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    width: 30%;
+    height: 90%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-sizing: border-box;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif; 
+}
+
+.support-image{
+    width: 30%;
+    height: 80%;
+    background-color: antiquewhite;
+}
+
+#genre, #rating, #year{
+    width: 60%;
+    margin: 20px 0 20px 10px;
+    padding: 5px;
+    background-color: #181818;
+    border: 1px solid gray;
+    border-radius: 6px;
+    color: #ffffff;
+}
+
+#rating{
+    width: 56%;
+}
+
+#submit{
+    padding: 10px 14px 10px 14px;
+    border-radius: 6px;
+    background-color: transparent;
+    border: 2px solid #f65353;
+    box-shadow: 0 0 14px rgba(255, 77, 77, 0.55);
+    color: #ffffff;
+    font-family: 'Lato', sans-serif; 
+    font-size: 13px;     
+    margin-top: 25px;
+    width: 90%;
+}
+
+#submit:hover{
+    background-color: #f65353;
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.85);
+    color: black;
+}
+
+#curate{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Lato', sans-serif; 
+    padding-top: 10vh;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions</title>
+    <link rel="shortcut icon" href="m.png" type="image/png">
+
+    <style>
+        body {
+            background-color: #121212;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .recommend-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .rec-card {
+            background: #1c1c1c;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.2s;
+            overflow: hidden;
+        }
+
+        .rec-card:hover {
+            transform: scale(1.05);
+        }
+
+        .rec-poster {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Your curated movie list...</h2>
+
+    <div id="recommendations" class="recommend-grid"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const genre = params.get("genre")?.toLowerCase() || "";
+        const rating = params.get("rating")? parseFloat(params.get("rating")) : "";
+        const year = params.get("year")? parseInt(params.get("year")) : "";
+        fetch("movies.json")
+            .then(res => res.json())
+            .then(data => {
+
+                const container = document.getElementById("recommendations");
+                const filtered = data.filter(movie => {
+
+                    const matchesGenre = genre
+                        ? movie.genre.toLowerCase().includes(genre)
+                        : true;
+
+                    const matchesRating = rating
+                        ? movie.score >= rating
+                        : true;
+
+                    const matchesYear = year
+                        ? movie.year >= year
+                        : true;
+
+                    return matchesGenre && matchesRating && matchesYear;
+                });
+                if (filtered.length === 0) {
+                    container.innerHTML =
+                        "<p style='color:white; padding-left:20px;'>No movies found matching your criteria.</p>";
+                    return;
+                }
+                filtered.forEach(movie => {
+
+                    const card = document.createElement("div");
+                    card.classList.add("rec-card");
+
+                    card.innerHTML = `<img src="${movie.poster}" class="rec-poster">`;
+
+                    card.onclick = () => {
+                        window.location.href =
+                            "movie.html?name=" + encodeURIComponent(movie.name);
+                    };
+
+                    container.appendChild(card);
+                });
+
+            });
+    </script>
+
+</body>
+
+</html>

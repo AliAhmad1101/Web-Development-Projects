@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Page</title>
+    <link rel="shortcut icon" href="m.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="template.css">
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            scrollbar-width: none;
+        }
+
+        body{
+            background-color: #121212;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="title">
+            <div class="img"></div>
+            <div class="font">MovieCraft</div>
+        </div>
+        <div class="links">
+            <button class="wishlist" onclick="location.href = 'index.html'">Home</button>
+        </div>
+       </nav>
+
+       <div class="template-top">
+        <div class="poster"> <img alt="err" id="poster"></div>
+        <div class="details">
+            <div class="detailtop">
+                <div class="movie-detail-box">Movie Details </div>
+            </div>
+            <h1>Movie TItle : <span id="title"></span></h1>
+            <h1>Genre : <span id="genre"></span></h1>
+            <h1>Rating : <span id="rating"></span></h1>
+            <h1>Release Year : <span id="year"></span></h1>
+        </div>
+       </div>
+
+       <div class="summary-box">
+        <div class="detailtop" style="padding-top: 20px;">
+            <div class="movie-detail-box">Summary</div>
+        </div>
+        <div class="summary-area">
+            <p id="summary"></p>
+        </div>
+       </div>
+
+       <h2>You Might Also Like !!!</h2>
+
+       <div id="recommendations" class="recommend-grid"></div>
+
+<script src="movie.js"></script>
+</body>
+</html>
